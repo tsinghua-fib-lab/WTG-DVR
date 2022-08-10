@@ -1,0 +1,103 @@
+data:
+    kuaishou:
+        file_path: kuaishou_video_debias.csv
+        used_feature_columns:
+            - time_stamp
+            - user_id
+            - video_id
+            - duration_time
+            - play_time_truncate
+            - user_type
+            - video_type
+            - gain
+            - like
+            - follow
+            - mean_play
+            - std_play
+        sparse_features:
+            - user_id
+            - video_id
+            - user_type
+            - video_type
+        dense_features:
+            - duration_time
+        timestamp_key: time_stamp
+        train_val_split: 761105059450
+        val_test_split: 761117489657
+        uid_feature_name: user_id
+        iid_feature_name: video_id
+        duration_feature_name: duration_time
+        watchtime_feature_name: play_time_truncate
+        gain_feature_name: gain
+        like_feature_name: like
+        mean_play_feature_name: mean_play
+        std_play_feature_name: std_play
+        bc_thres: 2
+    wechat:
+        file_path: wechat_video_debias.csv
+        used_feature_columns:
+            - date_
+            - userid
+            - feedid
+            - device
+            - authorid
+            - videoplayseconds
+            - playseconds_truncate
+            - bgm_song_id
+            - bgm_singer_id
+            - user_type
+            - feed_type
+            - gain
+            - like
+            - read_comment
+            - forward
+            - mean_play
+            - std_play
+        sparse_features:
+            - userid
+            - feedid
+            - device
+            - authorid
+            - bgm_song_id
+            - bgm_singer_id
+            - user_type
+            - feed_type
+        dense_features:
+            - videoplayseconds
+        timestamp_key: date_
+        train_val_split: 11
+        val_test_split: 13
+        uid_feature_name: userid
+        iid_feature_name: feedid
+        duration_feature_name: videoplayseconds
+        watchtime_feature_name: playseconds_truncate
+        gain_feature_name: gain
+        like_feature_name: like
+        mean_play_feature_name: mean_play
+        std_play_feature_name: std_play
+        bc_thres: 2
+
+train:
+    save_path: video_debias_saves
+    save_result_path: rec_result
+    metrics:
+        - 'Train RMSE'
+        - 'Val RMSE'
+        - 'MAE'
+        - 'RMSE'
+        - 'MAE@K'
+        - 'RMSE@K'
+        - 'WATCHTIME@K'
+        - 'GAIN@K'
+        - 'DCG@K'
+        - 'LIKE@K'
+        - 'BC@K'
+
+test:
+    kuaishou:
+        top_k: 10
+    wechat:
+        top_k: 20
+
+run:
+    seed: 47
