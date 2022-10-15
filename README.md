@@ -6,6 +6,17 @@ Yu Zheng, Chen Gao, Jingtao Ding, Lingling Yi, Depeng Jin, Yong Li, Meng Wang, *
 
 The code is tested under a Linux desktop with TensorFlow 2.3.0 and Python 3.7.9.
 
+Please cite our paper if you use this repository.
+```
+@inproceedings{zheng2022dvr,
+  title={DVR: Micro-Video Recommendation Optimizing Watch-Time-Gain under Duration Bias},
+  author={Zheng, Yu and Gao, Chen and Ding, Jingtao and Yi, Lingling and Jin, Depeng and Li, Yong and Wang, Meng},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  pages={334--345},
+  year={2022}
+}
+```
+
 ## Datasets
 Unzip the compressed data files in `examples/data/` with the following commands:
 ```
